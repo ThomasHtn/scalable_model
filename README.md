@@ -70,3 +70,17 @@ scalable_model/               # Racine du projet ML scalable
 ├── .gitignore                # Fichiers/dossiers à ignorer dans le versioning Git
 └── README.md                 # Documentation principale : usage, architecture, setup
 ```
+
+### Alembic
+
+**Créer une nouvelle migration**
+Depuis la racine du projet :
+```batch
+alembic -c database/alembic.ini revision --autogenerate -m "nom de la migration"
+```
+
+**Appliquer la migration**
+Depuis la racine du projet :
+```batch
+alembic -c database/alembic.ini upgrade head
+```

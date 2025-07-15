@@ -1,5 +1,7 @@
 from sqlalchemy import Column, Integer, String
-from database.database import Base
+
+from database.db_init import Base
+
 
 class User(Base):
     __tablename__ = "users"
@@ -13,8 +15,6 @@ class User(Base):
     marital_status = Column(String)
     occupation = Column(String)
     relationship = Column(String)
-    race = Column(String)
-    sex = Column(String)
     capital_gain = Column(Integer)
     capital_loss = Column(Integer)
     hours_per_week = Column(Integer)

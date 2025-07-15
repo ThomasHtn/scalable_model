@@ -1,7 +1,7 @@
 import pandas as pd
 from sqlalchemy.orm import Session
 
-from database.database import Base, SessionLocal, engine
+from database.db_init import Base, SessionLocal, engine
 from database.models.user_model import User
 
 
@@ -17,8 +17,6 @@ def load_csv_to_db(csv_path: str):
             "marital_status",
             "occupation",
             "relationship",
-            "race",
-            "sex",
             "capital_gain",
             "capital_loss",
             "hours_per_week",
