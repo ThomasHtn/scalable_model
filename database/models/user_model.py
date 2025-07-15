@@ -1,6 +1,12 @@
+import os
+import sys
+
 from sqlalchemy import Column, Integer, String
 
 from database.db_init import Base
+
+# Add folder parent in PYTHONPATH
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 
 
 class User(Base):

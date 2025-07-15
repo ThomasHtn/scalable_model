@@ -1,0 +1,9 @@
+scikit-learn
+sqlalchemy
+pandas
+tensorflow-cpu
+matplotlib
+mlflow
+joblib
+numpy==1.26.4
+request

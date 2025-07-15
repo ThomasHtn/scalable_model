@@ -84,3 +84,10 @@ Depuis la racine du projet :
 ```batch
 alembic -c database/alembic.ini upgrade head
 ```
+
+
+### Database api 
+Depuis la racine du projet
+```batch
+uvicorn database.main:app --reload
+```

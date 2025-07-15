@@ -1,9 +1,4 @@
-import os
-import sys
 from logging.config import fileConfig
-
-# Add folder parent in PYTHONPATH
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 
 from alembic import context
 from sqlalchemy import engine_from_config, pool
@@ -11,14 +6,19 @@ from sqlalchemy import engine_from_config, pool
 from database.db_init import Base
 from database.models import user_model  # noqa: F401
 
-# Config Alembic
+# this is the Alembic Config object, which provides
+# access to the values within the .ini file in use.
 config = context.config
-fileConfig(config.config_file_name)
 
-# Inject dynamic database URL
-config.set_main_option(
-    "sqlalchemy.url", os.getenv("DATABASE_URL", "sqlite:///./census.db")
-)
+# Interpret the config file for Python logging.
+# This line sets up loggers basically.
+if config.config_file_name is not None:
+    fileConfig(config.config_file_name)
+
+# add your model's MetaData object here
+# for 'autogenerate' support
+# from myapp import mymodel
+# target_metadata = mymodel.Base.metadata
 target_metadata = Base.metadata
 
 

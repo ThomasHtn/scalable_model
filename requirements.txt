@@ -6,3 +6,4 @@ uvicorn
 pandas
 eralchemy
 graphviz
+numpy==1.26.4
