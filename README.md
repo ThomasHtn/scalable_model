@@ -22,7 +22,7 @@ scalable_model/               # Racine du projet ML scalable
 ├── database/                 # Microservice pour gérer la base de données et migrations
 │   ├── models/               # Dossier pour les modèles de données SQLAlchemy
 │   │   ├── __init__.py       # Fichier d'initialisation du module schema
-│   │   └── user_schema.py    # Exemple de schéma Pydantic pour les utilisateurs
+│   │   └── user_model.py     # Exemple de schéma SQL alchemy pour les utilisateurs
 │   ├── schemas/              # Dossier pour les schémas Pydantic
 │   │   ├── __init__.py       # Fichier d'initialisation du module schema
 │   │   └── user_schema.py    # Exemple de schéma Pydantic pour les utilisateurs
