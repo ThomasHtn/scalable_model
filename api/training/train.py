@@ -1,6 +1,7 @@
 import os
 import sys
 
+import joblib
 import mlflow
 import mlflow.sklearn
 import pandas as pd
@@ -13,7 +14,6 @@ from .preprocess import preprocessing
 
 # Add folder parent in PYTHONPATH
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
-mlflow.set_tracking_uri("/mlruns")
 
 
 def fetch_data_from_api():
@@ -54,7 +54,7 @@ def simple_model_train(numerical_cols, categorical_cols, predict_col):
 
     # Séparation X / y
     y = df[predict_col]
-    df = df.drop(columns=[predict_col])
+    df = df.drop(columns=[predict_col, "id"])
 
     # Preprocessing data
     X, _, preprocessor = preprocessing(df, numerical_cols, categorical_cols)
@@ -76,6 +76,7 @@ def simple_model_train(numerical_cols, categorical_cols, predict_col):
 
     # Save model
     model.save(os.path.join("model_artifacts", "model1.keras"))
+    joblib.dump(preprocessor, os.path.join("model_artifacts", "preprocessor2.pkl"))
     print("Model and preprocessor saved.")
 
     # Log dans MLflow
